@@ -10,6 +10,12 @@ reqwest = { version = "0.11", features = ["blocking"] }
 select = "0.5"
 rayon = "1.5"
 
+[target.i586-unknown-linux-gnu]
+linker = "gcc"
+
 [profile.release]
 opt-level = 'z' # Optimize for size
 codegen-units = 1
+lto = true
+panic = 'abort'     # Abort on panic
+strip = true        # Strip symbols from binary*
